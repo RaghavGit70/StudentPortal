@@ -1,0 +1,58 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="Student_IFModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="Account_Information">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="UserName" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="Password" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="User_Role" Relationship="Student_IFModel.FK_User_Role_Account_Information" FromRole="Account_Information" ToRole="User_Role" />
+  </EntityType>
+  <EntityType Name="Stu_Info">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Age" Type="Int32" />
+    <Property Name="Country" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="State" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Gender" Type="String" MaxLength="1" FixedLength="true" Unicode="false" />
+    <Property Name="Pincode" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="DOB" Type="DateTime" Precision="0" />
+    <Property Name="Photo" Type="Binary" MaxLength="Max" FixedLength="false" />
+    <Property Name="C10_marksheet" Type="Binary" MaxLength="Max" FixedLength="false" />
+    <Property Name="C12_marksheet" Type="Binary" MaxLength="Max" FixedLength="false" />
+  </EntityType>
+  <EntityContainer Name="Student_IFEntities1" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="Account_Information" EntityType="Self.Account_Information" />
+    <EntitySet Name="Stu_Info" EntityType="Self.Stu_Info" />
+    <EntitySet Name="User_Role" EntityType="Student_IFModel.User_Role" />
+    <AssociationSet Name="FK_User_Role_Account_Information" Association="Student_IFModel.FK_User_Role_Account_Information">
+      <End Role="Account_Information" EntitySet="Account_Information" />
+      <End Role="User_Role" EntitySet="User_Role" />
+    </AssociationSet>
+  </EntityContainer>
+  <EntityType Name="User_Role">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="UserId" Type="Int32" />
+    <Property Name="Role" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="Account_Information" Relationship="Student_IFModel.FK_User_Role_Account_Information" FromRole="User_Role" ToRole="Account_Information" />
+  </EntityType>
+  <Association Name="FK_User_Role_Account_Information">
+    <End Type="Student_IFModel.Account_Information" Role="Account_Information" Multiplicity="0..1" />
+    <End Type="Student_IFModel.User_Role" Role="User_Role" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Account_Information">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="User_Role">
+        <PropertyRef Name="UserId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+</Schema>
