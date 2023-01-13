@@ -1,4 +1,5 @@
-﻿using System;
+﻿using StudentDAL;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -37,14 +38,14 @@ namespace StudentPortal
 
         public override string[] GetRolesForUser(string username)
         {
-            using (var context = new Student_IFEntities1())
+            using (var context = new Student_IFEntities())
             {
                 var result = (from user in context.Account_Information
-                             join role in context.User_Role on user.id equals role.UserId
-                             where user.UserName == username
-                             select role.Role).ToArray() ;
-                return result ;
+                              where user.UserName == username
+                              select user.Role).ToArray();
+                return result;
             }
+
         }
 
         public override string[] GetUsersInRole(string roleName)

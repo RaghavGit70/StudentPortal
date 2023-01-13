@@ -1,4 +1,4 @@
-﻿@model IEnumerable<StudentPortal.Stu_Info>
+﻿@model IEnumerable<StudentDAL.Stu_Info>
 
 @{
     ViewBag.Title = "Index";
@@ -32,15 +32,7 @@
         <th>
             @Html.DisplayNameFor(model => model.DOB)
         </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Photo)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.C10_marksheet)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.C12_marksheet)
-        </th>
+        
         <th></th>
     </tr>
 
@@ -67,15 +59,7 @@
         <td>
             @Html.DisplayFor(modelItem => item.DOB)
         </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Photo)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.C10_marksheet)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.C12_marksheet)
-        </td>
+        
         <td>
             @if(User.IsInRole("admin"))
             {

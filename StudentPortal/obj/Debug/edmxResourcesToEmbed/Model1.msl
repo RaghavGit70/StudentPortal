@@ -4,6 +4,8 @@
     <EntitySetMapping Name="Account_Information">
       <EntityTypeMapping TypeName="Student_IFModel.Account_Information">
         <MappingFragment StoreEntitySet="Account_Information">
+          <ScalarProperty Name="Email" ColumnName="Email" />
+          <ScalarProperty Name="Role" ColumnName="Role" />
           <ScalarProperty Name="id" ColumnName="id" />
           <ScalarProperty Name="UserName" ColumnName="UserName" />
           <ScalarProperty Name="Password" ColumnName="Password" />
@@ -33,6 +35,14 @@
           <ScalarProperty Name="Role" ColumnName="Role" />
           <ScalarProperty Name="UserId" ColumnName="UserId" />
           <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Ops">
+      <EntityTypeMapping TypeName="Student_IFModel.Op">
+        <MappingFragment StoreEntitySet="Ops">
+          <ScalarProperty Name="operation" ColumnName="operation" />
+          <ScalarProperty Name="id" ColumnName="id" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>

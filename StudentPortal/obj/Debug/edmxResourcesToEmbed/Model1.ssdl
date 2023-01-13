@@ -7,6 +7,15 @@
     <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
     <Property Name="UserName" Type="varchar" MaxLength="100" />
     <Property Name="Password" Type="varchar" MaxLength="50" />
+    <Property Name="Role" Type="varchar" MaxLength="50" />
+    <Property Name="Email" Type="varchar" MaxLength="100" />
+  </EntityType>
+  <EntityType Name="Ops">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="operation" Type="varchar" MaxLength="50" />
   </EntityType>
   <EntityType Name="Stu_Info">
     <Key>
@@ -46,6 +55,7 @@
   </Association>
   <EntityContainer Name="Student_IFModelStoreContainer">
     <EntitySet Name="Account_Information" EntityType="Self.Account_Information" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Ops" EntityType="Self.Ops" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="Stu_Info" EntityType="Self.Stu_Info" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="User_Role" EntityType="Self.User_Role" Schema="dbo" store:Type="Tables" />
     <AssociationSet Name="FK_User_Role_Account_Information" Association="Self.FK_User_Role_Account_Information">

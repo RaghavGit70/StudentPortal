@@ -1,4 +1,5 @@
-﻿using System;
+﻿using StudentDAL;
+using System;
 using System.Collections.Generic;
 using System.Data.Entity;
 using System.Linq;
@@ -11,16 +12,24 @@ namespace StudentPortal.Controllers
     [Authorize]
     public class Stu_InfController : Controller
     {
-        private Student_IFEntities1 db = new Student_IFEntities1();
+        private Student_IFEntities db = new Student_IFEntities();
 
         // GET: Stu_Inf
-        
+        /// <summary>
+        /// returns the home view
+        /// </summary>
+        /// <param name="i"></param>
+        /// <returns></returns>
         public ActionResult Index(int? i)
         {
             return View(db.Stu_Info.ToList());
         }
 
-       
+       /// <summary>
+       /// returns the details of individual student
+       /// </summary>
+       /// <param name="id"></param>
+       /// <returns></returns>
         public ActionResult Details(int? id)
         {
             if (id == null)
@@ -36,8 +45,11 @@ namespace StudentPortal.Controllers
             }
             return View(stu_Info);
         }
-
-        [Authorize (Roles = "admin, user")]
+        /// <summary>
+        /// api for creating new user
+        /// </summary>
+        /// <returns></returns>
+        [Authorize (Roles = "admin")]
         public ActionResult Create()
         {
             var studentModel = new Stu_Info();
@@ -45,8 +57,14 @@ namespace StudentPortal.Controllers
             return View(studentModel);
         }
 
+        /// <summary>
+        /// saving details of new user in database
+        /// </summary>
+        /// <param name="student"></param>
+        /// <returns></returns>
+
         [HttpPost]
-        [Authorize(Roles = "admin, user")]
+        [Authorize(Roles = "admin")]
         public ActionResult Create([Bind(Include = "Name,Age,Country,state,Gender,Pincode,DOB")] Stu_Info student)
         {
             if (ModelState.IsValid)
@@ -58,6 +76,12 @@ namespace StudentPortal.Controllers
             }
             return View(student);
         }
+
+        /// <summary>
+        /// api for editing user details
+        /// </summary>
+        /// <param name="id"></param>
+        /// <returns></returns>
 
         [Authorize(Roles = "admin")]
         // GET: Stu_Info/Edit/5
@@ -95,6 +119,12 @@ namespace StudentPortal.Controllers
             }
             return View(student);
         }
+
+        /// <summary>
+        /// api to delete details of student
+        /// </summary>
+        /// <param name="id"></param>
+        /// <returns></returns>
 
         // GET: Stu_Info/Delete/5
         [Authorize(Roles = "admin")]

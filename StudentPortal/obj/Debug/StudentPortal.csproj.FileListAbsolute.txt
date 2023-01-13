@@ -56,6 +56,7 @@ D:\Project\StudentPortal\StudentPortal\bin\EntityFramework.SqlServer.dll
 D:\Project\StudentPortal\StudentPortal\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll
 D:\Project\StudentPortal\StudentPortal\bin\Microsoft.Web.Infrastructure.dll
 D:\Project\StudentPortal\StudentPortal\bin\Newtonsoft.Json.dll
+D:\Project\StudentPortal\StudentPortal\bin\StudentDAL.dll
 D:\Project\StudentPortal\StudentPortal\bin\System.Web.Helpers.dll
 D:\Project\StudentPortal\StudentPortal\bin\System.Web.Mvc.dll
 D:\Project\StudentPortal\StudentPortal\bin\System.Web.Optimization.dll
@@ -64,6 +65,8 @@ D:\Project\StudentPortal\StudentPortal\bin\System.Web.WebPages.Deployment.dll
 D:\Project\StudentPortal\StudentPortal\bin\System.Web.WebPages.dll
 D:\Project\StudentPortal\StudentPortal\bin\System.Web.WebPages.Razor.dll
 D:\Project\StudentPortal\StudentPortal\bin\WebGrease.dll
+D:\Project\StudentPortal\StudentPortal\bin\StudentDAL.pdb
+D:\Project\StudentPortal\StudentPortal\bin\StudentDAL.dll.config
 D:\Project\StudentPortal\StudentPortal\bin\EntityFramework.xml
 D:\Project\StudentPortal\StudentPortal\bin\EntityFramework.SqlServer.xml
 D:\Project\StudentPortal\StudentPortal\bin\System.Web.Helpers.xml
